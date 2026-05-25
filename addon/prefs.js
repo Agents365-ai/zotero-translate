@@ -37,13 +37,6 @@ pref("__prefsPrefix__.keepWindowTop", false);
 pref("__prefsPrefix__.keepPopupSize", false);
 pref("__prefsPrefix__.popupWidth", 105);
 pref("__prefsPrefix__.popupHeight", 30);
-pref("__prefsPrefix__.niutransEndpoint", "https://niutrans.com/niuInterface");
-pref("__prefsPrefix__.niutransUsername", "");
-pref("__prefsPrefix__.niutransPassword", "");
-pref("__prefsPrefix__.niutransDictNo", "");
-pref("__prefsPrefix__.niutransMemoryNo", "");
-pref("__prefsPrefix__.niutransDictLibList", "[]");
-pref("__prefsPrefix__.niutransMemoryLibList", "[]");
 pref("__prefsPrefix__.autoPlay", false);
 pref("__prefsPrefix__.showPlayBtn", true);
 pref("__prefsPrefix__.enableAutoDetectLanguage", true);
@@ -87,23 +80,9 @@ pref(
 );
 pref("__prefsPrefix__.cnkiSplitSecond", 1);
 pref("__prefsPrefix__.cnkiUseSplit", true);
-pref("__prefsPrefix__.deeplx.endpoint", "https://www2.deepl.com/jsonrpc");
-pref("__prefsPrefix__.deeplcustom.endpoint", "");
-pref("__prefsPrefix__.pot.port", 60828);
-pref(
-  "__prefsPrefix__.qwenmt.endPoint",
-  "https://dashscope.aliyuncs.com/compatible-mode",
-);
-pref("__prefsPrefix__.qwenmt.model", "qwen-mt-plus");
-pref("__prefsPrefix__.qwenmt.domains", "");
-pref("__prefsPrefix__.aliyun.action", "TranslateGeneral");
-pref("__prefsPrefix__.aliyun.scene", "general");
 
 pref("__prefsPrefix__.enableMathRendering", false);
 pref("__prefsPrefix__.stripEmptyLines", false);
-pref("__prefsPrefix__.libretranslate.endpoint", "http://localhost:5000");
-pref("__prefsPrefix__.mtranserver.endpoint", "http://localhost:8989/translate");
-pref("__prefsPrefix__.mtranserver.versionlabel", false);
 pref("__prefsPrefix__.claude.stream", true);
 pref(
   "__prefsPrefix__.claude.endPoint",
@@ -116,16 +95,6 @@ pref(
   "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
 );
 pref("__prefsPrefix__.claude.maxTokens", "4000");
-pref("__prefsPrefix__.xftrans.engine", "xftrans");
-pref("__prefsPrefix__.tencent.region", "ap-shanghai");
-pref("__prefsPrefix__.tencent.projectId", "0");
-pref("__prefsPrefix__.youdaozhiyun.domain", "general");
-pref("__prefsPrefix__.youdaozhiyunllm.model", "0");
-pref("__prefsPrefix__.youdaozhiyunllm.stream", true);
-pref("__prefsPrefix__.nllb.model", "nllb-api");
-pref("__prefsPrefix__.nllb.apiendpoint", "http://localhost:7860");
-pref("__prefsPrefix__.nllb.apistream", true);
-pref("__prefsPrefix__.nllb.serveendpoint", "http://localhost:6060");
 pref("__prefsPrefix__.customGPT1.temperature", "1.0");
 pref("__prefsPrefix__.customGPT2.temperature", "1.0");
 pref("__prefsPrefix__.customGPT3.temperature", "1.0");
