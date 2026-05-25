@@ -7,40 +7,20 @@ service-siliconflow=硅基流动
 service-openrouter=OpenRouter
 service-huoshanweb=火山网页翻译
 service-tencenttransmart=腾讯TranSmart
-service-huoshan=火山翻译
 service-googleapi=Google(API)
 service-google=Google
 service-cnki=CNKI
 service-youdao=有道
-service-youdaozhiyun=有道智云
-service-youdaozhiyunllm=有道子曰
-service-niutranspro=小牛
-service-microsoft=微软
-service-caiyun=彩云
-service-libretranslate=LibreTranslate
-service-mtranserver=MTranServer
-service-deeplfree=DeepL(免费订阅)
-service-deeplpro=DeepL(Pro订阅)
-service-deeplcustom=DeepLX(API)
-service-deeplx=DeepLX
-service-baidu=百度
-service-baidufield=百度垂直领域
-service-openl=OpenL
-service-tencent=腾讯
 service-aliyun=阿里云百炼（Qwen）
-service-xftrans=讯飞
 service-chatgpt=ChatGPT
 service-customgpt1=自定义GPT1
 service-customgpt2=自定义GPT2
 service-customgpt3=自定义GPT3
 service-azuregpt=AzureGPT
 service-gemini=Gemini
-service-qwenmt=Qwen-MT
 service-claude=Claude
 service-haici=海词
 service-bing=必应
-service-pot=Pot
-service-nllb=NLLB
 service-bingdict=必应词典(en→zh)🔊
 service-cambridgedict=剑桥词典(en→other)🔊
 service-haicidict=海词词典(en→zh)🔊
@@ -79,22 +59,7 @@ service-dialog-custom-request-validation-example-number=- 数字：123
 service-dialog-custom-request-validation-example-string=- 文本："text"
 service-dialog-custom-request-validation-example-object=- 对象：{ $example }
 
-service-niutranspro-dialog-endpoint=接口
-service-niutranspro-dialog-username=用户名
-service-niutranspro-dialog-password=密码
-service-niutranspro-dialog-signup=注册
-service-niutranspro-dialog-forget=忘记密码
-service-niutranspro-dialog-dictLib=术语词典
-service-niutranspro-dialog-memoryLib=翻译记忆
-service-niutranspro-dialog-tip0=请到
-service-niutranspro-dialog-tip1=小牛翻译云平台
-service-niutranspro-dialog-tip2=进行添加术语词典库
-service-niutranspro-dialog-signin=登录
-service-niutranspro-dialog-refresh=刷新
-service-niutranspro-dialog-signout=退出登录
 
-service-deeplcustom-dialog-endPoint=接口
-service-deeplx-dialog-endPoint=接口
 
 service-chatgpt-dialog-endPoint=接口
 service-chatgpt-dialog-model=模型
@@ -111,15 +76,11 @@ service-azuregpt-dialog-apiVersion=版本
 service-azuregpt-dialog-prompt=提示词
 service-azuregpt-dialog-custom-request=自定义请求
 
-service-xftrans-dialog-engine=翻译引擎
 
 service-gemini-dialog-endPoint=接口
 service-gemini-dialog-prompt=提示词
 service-gemini-dialog-stream=流式输出
 
-service-qwenmt-dialog-endPoint=API地址
-service-qwenmt-dialog-model=模型
-service-qwenmt-dialog-domains=领域提示词
 
 service-claude-dialog-endPoint=接口
 service-claude-dialog-model=模型
@@ -132,22 +93,8 @@ service-cnki-settings=设置
 service-cnki-dialog-regex=CNKI广告移除正则表达式
 service-cnki-dialog-split=超过800字符自动拆分翻译
 
-service-aliyun-dialog-action=版本
-service-aliyun-dialog-scene=场景
 
-service-tencent-dialog-secretid=密钥ID
-service-tencent-dialog-secretkey=密钥Key
-service-tencent-dialog-region=地域
-service-tencent-dialog-projectid=项目ID
-service-tencent-dialog-termrepoid=术语库IDs (可选)
-service-tencent-dialog-sentrepoid=例句库IDs (可选)
 
-service-youdaozhiyun-dialog-domain=领域
-service-youdaozhiyunllm-dialog-model=模型
-service-youdaozhiyunllm-dialog-pro=有道智云子曰大模型Pro-14B
-service-youdaozhiyunllm-dialog-lite=有道智云子曰大模型Lite-1.5B
-service-youdaozhiyunllm-dialog-prompt=提示词
-service-youdaozhiyunllm-dialog-stream=流式输出
 
 readerpopup-translate-label=翻译
 readerpopup-addToNote-label=添加翻译至笔记
@@ -171,16 +118,6 @@ service-renameServices-hint=所做更改将在插件或Zotero重启后生效
 service-renameServices-save=保存
 service-renameServices-close=关闭
 
-service-libretranslate-dialog-endPoint=API 地址
 
-service-mtranserver-dialog-endPoint=接口
-service-mtranserver-dialog-versionlabel=使用MTranServer v3.0.0+
 
-service-pot-dialog-port=端口
 
-service-nllb-dialog-model=nllb 模型
-service-nllb-dialog-apiendpoint=nllb-api 接口
-service-nllb-dialog-apistream=nllb-api 流式输出
-service-nllb-dialog-serveendpoint=nllb-serve 接口
-service-nllb-dialog-apilabel=nllb-api 文档
-service-nllb-dialog-servelabel=nllb-serve 文档
