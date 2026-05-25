@@ -4,13 +4,6 @@ An **LLM-first** translation plugin for Zotero 7. Translate PDF selections, item
 titles, abstracts, annotations and notes using large language models — with a
 few free, no-API-key engines kept as zero-config fallbacks.
 
-> This project is a derivative of
-> [windingwind/zotero-pdf-translate](https://github.com/windingwind/zotero-pdf-translate)
-> ("Translate for Zotero"), licensed under **AGPL-3.0**. It re-focuses that
-> plugin on LLM translation, adds a set of OpenAI-compatible providers, and
-> removes the API-key commercial MT and self-hosted engines. See
-> [Differences from upstream](#differences-from-upstream).
-
 ## Translation engines
 
 ### LLM engines (primary)
@@ -50,17 +43,14 @@ shared streaming core `gptTranslate`. To add a provider:
 3. Add a `service-<id>=DisplayName` line in `addon/locale/*/addon.ftl`.
 4. Register it in `src/modules/services/index.ts`.
 
-## Differences from upstream
+## Highlights
 
 - LLM engines sort first and are the focus; free no-key engines remain as
   zero-config fallbacks.
-- Added OpenAI-compatible presets (DeepSeek, Qwen, MiniMax, Moonshot, Zhipu,
-  Doubao, SiliconFlow, OpenRouter).
-- Removed all API-key commercial MT engines (Baidu, Tencent, DeepL Pro,
-  Microsoft, NiuTrans, Caiyun, etc.) and self-hosted engines (DeepLX,
-  MTranServer, NLLB, Pot, LibreTranslate).
-- New plugin identity (`zotero-translate@niehu.github.io`) so it coexists with
-  the original plugin.
+- OpenAI-compatible presets out of the box: DeepSeek, Qwen, MiniMax, Moonshot,
+  Zhipu, Doubao, SiliconFlow, OpenRouter — plus any custom endpoint.
+- Editable endpoint / model / temperature / prompt / streaming per engine,
+  with streaming results rendered live.
 
 ## Development
 
@@ -70,7 +60,10 @@ npm start      # run against a local Zotero for development
 npm run build  # type-check + build the XPI into build/
 ```
 
-## License
+## License & acknowledgements
 
-[AGPL-3.0-or-later](./LICENSE). Original work © windingwind and contributors.
-Modifications © niehu.
+Licensed under [AGPL-3.0-or-later](./LICENSE). Built on the translation engine
+framework from
+[zotero-pdf-translate](https://github.com/windingwind/zotero-pdf-translate) by
+windingwind and contributors (AGPL-3.0); that copyright is retained as required
+by the license.
