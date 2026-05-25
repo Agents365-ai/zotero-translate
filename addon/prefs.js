@@ -129,3 +129,101 @@ pref("__prefsPrefix__.nllb.serveendpoint", "http://localhost:6060");
 pref("__prefsPrefix__.customGPT1.temperature", "1.0");
 pref("__prefsPrefix__.customGPT2.temperature", "1.0");
 pref("__prefsPrefix__.customGPT3.temperature", "1.0");
+
+// OpenAI-compatible LLM presets. Endpoints/models are defaults and editable in each service dialog.
+pref(
+  "__prefsPrefix__.deepseek.endPoint",
+  "https://api.deepseek.com/v1/chat/completions",
+);
+pref("__prefsPrefix__.deepseek.model", "deepseek-chat");
+pref("__prefsPrefix__.deepseek.temperature", "0.3");
+pref(
+  "__prefsPrefix__.deepseek.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.deepseek.stream", true);
+pref("__prefsPrefix__.deepseek.customParams", "");
+pref(
+  "__prefsPrefix__.aliyun.endPoint",
+  "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+);
+pref("__prefsPrefix__.aliyun.model", "qwen-plus");
+pref("__prefsPrefix__.aliyun.temperature", "0.3");
+pref(
+  "__prefsPrefix__.aliyun.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.aliyun.stream", true);
+pref("__prefsPrefix__.aliyun.customParams", "");
+pref(
+  "__prefsPrefix__.minimax.endPoint",
+  "https://api.minimaxi.com/v1/text/chatcompletion_v2",
+);
+pref("__prefsPrefix__.minimax.model", "MiniMax-Text-01");
+pref("__prefsPrefix__.minimax.temperature", "0.3");
+pref(
+  "__prefsPrefix__.minimax.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.minimax.stream", true);
+pref("__prefsPrefix__.minimax.customParams", "");
+pref(
+  "__prefsPrefix__.moonshot.endPoint",
+  "https://api.moonshot.cn/v1/chat/completions",
+);
+pref("__prefsPrefix__.moonshot.model", "moonshot-v1-8k");
+pref("__prefsPrefix__.moonshot.temperature", "0.3");
+pref(
+  "__prefsPrefix__.moonshot.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.moonshot.stream", true);
+pref("__prefsPrefix__.moonshot.customParams", "");
+pref(
+  "__prefsPrefix__.zhipu.endPoint",
+  "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+);
+pref("__prefsPrefix__.zhipu.model", "glm-4-flash");
+pref("__prefsPrefix__.zhipu.temperature", "0.3");
+pref(
+  "__prefsPrefix__.zhipu.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.zhipu.stream", true);
+pref("__prefsPrefix__.zhipu.customParams", "");
+pref(
+  "__prefsPrefix__.volcengine.endPoint",
+  "https://ark.cn-beijing.volces.com/api/v3/chat/completions",
+);
+pref("__prefsPrefix__.volcengine.model", "doubao-pro-32k");
+pref("__prefsPrefix__.volcengine.temperature", "0.3");
+pref(
+  "__prefsPrefix__.volcengine.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.volcengine.stream", true);
+pref("__prefsPrefix__.volcengine.customParams", "");
+pref(
+  "__prefsPrefix__.siliconflow.endPoint",
+  "https://api.siliconflow.cn/v1/chat/completions",
+);
+pref("__prefsPrefix__.siliconflow.model", "deepseek-ai/DeepSeek-V3");
+pref("__prefsPrefix__.siliconflow.temperature", "0.3");
+pref(
+  "__prefsPrefix__.siliconflow.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.siliconflow.stream", true);
+pref("__prefsPrefix__.siliconflow.customParams", "");
+pref(
+  "__prefsPrefix__.openrouter.endPoint",
+  "https://openrouter.ai/api/v1/chat/completions",
+);
+pref("__prefsPrefix__.openrouter.model", "openai/gpt-4o-mini");
+pref("__prefsPrefix__.openrouter.temperature", "0.3");
+pref(
+  "__prefsPrefix__.openrouter.prompt",
+  "As an academic expert with specialized knowledge in various fields, please provide a proficient and precise translation from ${langFrom} to ${langTo} of the academic text enclosed in 🔤. It is crucial to maintaining the original phrase or sentence and ensure accuracy while utilizing the appropriate language. The text is as follows:  🔤 ${sourceText} 🔤  Please provide the translated result without any additional explanation and remove 🔤.",
+);
+pref("__prefsPrefix__.openrouter.stream", true);
+pref("__prefsPrefix__.openrouter.customParams", "");

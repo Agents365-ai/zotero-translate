@@ -1,13 +1,13 @@
 {
-  "name": "zotero-pdf-translate",
-  "version": "2.4.4",
-  "description": "Translate PDF, EPub, webpage, metadata, annotations, notes to the target language. Support 20+ translate services.",
+  "name": "zotero-translate",
+  "version": "0.1.0",
+  "description": "LLM-first translation for Zotero. Translate PDF, EPub, metadata, annotations and notes with ChatGPT/Claude/Gemini and many OpenAI-compatible providers, plus free no-key fallback engines.",
   "config": {
-    "addonName": "Translate for Zotero",
-    "addonID": "zoteropdftranslate@euclpts.com",
-    "addonRef": "zoteropdftranslate",
-    "prefsPrefix": "extensions.zotero.ZoteroPDFTranslate",
-    "addonInstance": "PDFTranslate"
+    "addonName": "Zotero Translate",
+    "addonID": "zotero-translate@niehu.github.io",
+    "addonRef": "zoterotranslate",
+    "prefsPrefix": "extensions.zotero.ZoteroTranslate",
+    "addonInstance": "ZoteroTranslate"
   },
   "main": "src/index.ts",
   "scripts": {
@@ -20,14 +20,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/windingwind/zotero-pdf-translate.git"
+    "url": "git+https://github.com/Agents365-ai/zotero-translate.git"
   },
-  "author": "windingwind",
+  "author": "niehu",
   "license": "AGPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/windingwind/zotero-pdf-translate/issues"
+    "url": "https://github.com/Agents365-ai/zotero-translate/issues"
   },
-  "homepage": "https://github.com/windingwind/zotero-pdf-translate#readme",
+  "homepage": "https://github.com/Agents365-ai/zotero-translate#readme",
   "dependencies": {
     "franc": "^6.2.0",
     "iso639-js": "^1.1.3",

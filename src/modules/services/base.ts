@@ -26,6 +26,14 @@ export interface TranslateService {
   type: "word" | "sentence";
 
   /**
+   * Set this to true for LLM-based engines.
+   *
+   * LLM services are sorted to the top of the sentence service list so they
+   * are the most prominent choice in the UI.
+   */
+  llm?: boolean;
+
+  /**
    * Documentation or help page URL.
    *
    * If provided, a "Help" button will appear in the settings dialog.

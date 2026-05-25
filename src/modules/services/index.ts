@@ -9,88 +9,61 @@ import {
   stripEmptyLines,
 } from "../../utils";
 
-import { Aliyun } from "./aliyun";
-import { Tencent } from "./tencent";
-import { ChatGPT, customGPT1, customGPT2, customGPT3, azureGPT } from "./gpt";
-import { Baidu } from "./baidu";
-import { BaiduField } from "./baidufield";
-import { Bing } from "./bing";
-import { BingDict } from "./bingdict";
-import { Caiyun } from "./caiyun";
-import { CambridgeDict } from "./cambridgedict";
-import { Claude } from "./claude";
-import { Cnki } from "./cnki";
-import { CollinsDict } from "./collinsdict";
-import { DeeplFree, DeeplPro } from "./deepl";
-import { FreeDictionaryAPI } from "./freedictionaryapi";
-import { Gemini } from "./gemini";
-import { Google, GoogleAPI } from "./google";
-import { Haici } from "./haici";
-import { HaiciDict } from "./haicidict";
-import { Huoshan } from "./huoshan";
-import { HuoshanWeb } from "./huoshanweb";
-import { LibreTranslate } from "./libretranslate";
-import { Microsoft } from "./microsoft";
-import { Mtranserver } from "./mtranserver";
-import { Niutrans } from "./niutrans";
-import { Nllb } from "./nllb";
-import { Openl } from "./openl";
-import { Pot } from "./pot";
-import { QwenMT } from "./qwenmt";
-import { WeblioDict } from "./webliodict";
-import { XFfrans } from "./xftrans";
-import { TencentTransmart } from "./tencenttransmart";
-import { Youdao } from "./youdao";
-import { YoudaoDict } from "./youdaodict";
-import { YoudaoZhiyun } from "./youdaozhiyun";
-import { YoudaoZhiyunLLM } from "./youdaozhiyunllm";
-import { DeepLCustom } from "./deeplcustom";
-import { DeepLX } from "./deeplx";
-
-const register: TranslateService[] = [
-  Aliyun,
-  Baidu,
-  BaiduField,
-  Bing,
-  BingDict,
-  Caiyun,
-  CambridgeDict,
-  Claude,
-  Cnki,
-  CollinsDict,
-  DeeplFree,
-  DeeplPro,
-  DeepLCustom,
-  DeepLX,
-  FreeDictionaryAPI,
-  Gemini,
-  Google,
-  GoogleAPI,
+// LLM engines (OpenAI/Azure, Claude, Gemini) and OpenAI-compatible presets.
+import {
   ChatGPT,
   customGPT1,
   customGPT2,
   customGPT3,
   azureGPT,
+  openAICompatiblePresets,
+} from "./gpt";
+import { Claude } from "./claude";
+import { Gemini } from "./gemini";
+// Free, no-API-key sentence engines.
+import { Bing } from "./bing";
+import { Cnki } from "./cnki";
+import { Google, GoogleAPI } from "./google";
+import { Haici } from "./haici";
+import { HuoshanWeb } from "./huoshanweb";
+import { TencentTransmart } from "./tencenttransmart";
+import { Youdao } from "./youdao";
+// Free, no-API-key dictionary engines.
+import { BingDict } from "./bingdict";
+import { CambridgeDict } from "./cambridgedict";
+import { CollinsDict } from "./collinsdict";
+import { FreeDictionaryAPI } from "./freedictionaryapi";
+import { HaiciDict } from "./haicidict";
+import { WeblioDict } from "./webliodict";
+import { YoudaoDict } from "./youdaodict";
+
+const register: TranslateService[] = [
+  // LLM engines
+  ChatGPT,
+  customGPT1,
+  customGPT2,
+  customGPT3,
+  azureGPT,
+  Claude,
+  Gemini,
+  ...openAICompatiblePresets,
+  // Free no-key sentence engines
+  Bing,
+  Cnki,
+  Google,
+  GoogleAPI,
   Haici,
-  HaiciDict,
-  Huoshan,
   HuoshanWeb,
-  LibreTranslate,
-  Microsoft,
-  Mtranserver,
-  Niutrans,
-  Nllb,
-  Openl,
-  Pot,
-  QwenMT,
-  Tencent,
   TencentTransmart,
-  WeblioDict,
-  XFfrans,
   Youdao,
+  // Free no-key dictionary engines
+  BingDict,
+  CambridgeDict,
+  CollinsDict,
+  FreeDictionaryAPI,
+  HaiciDict,
+  WeblioDict,
   YoudaoDict,
-  YoudaoZhiyun,
-  YoudaoZhiyunLLM,
 ];
 
 export class TranslationServices {
@@ -99,34 +72,30 @@ export class TranslationServices {
   );
 
   /**
-   * Sort the TranslateService list by the following rules:
-   * 1. Free and no-config services (no secret, no config) come first.
-   * 2. All other services are sorted by `id` in ascending order (case-insensitive).
-   * 3. Services whose `id` starts with "custom" are placed last
-   *    (sorted by `id` in ascending order within this group).
+   * Sort the TranslateService list by the following rules (LLM-first):
+   * 1. LLM engines come first so they are the most prominent choice.
+   * 2. Free, no-config engines (no secret, no external config) come next.
+   * 3. "custom" template slots are placed last.
+   * 4. Within each group, services are sorted by `id` ascending.
    */
   private sortServices<T extends TranslateService>(services: T[]) {
     return services.sort((a, b) => {
       const rank = (s: T) => {
         const needsSecret = !!s.defaultSecret || !!s.secretValidator;
-        const hasConfig = !!s.config;
         const needExternalConfig = s.requireExternalConfig;
 
         // Rank for sentence services
         if (s.type === "sentence") {
-          // Group 4: "custom" at the start → last
+          // Group 4: "custom" template slots → last
           if (s.id.startsWith("custom")) return 3;
 
-          // Group 1: Free sentence services (no secret, no external config)
-          if (!needsSecret && !needExternalConfig) return 0;
+          // Group 1: LLM engines → first
+          if (s.llm) return 0;
 
-          // Group 2: No-secret but requires external config
-          if (!needsSecret && needExternalConfig) return 1;
+          // Group 2: Free sentence services (no secret, no external config)
+          if (!needsSecret && !needExternalConfig) return 1;
 
-          // Group 3: Needs secret but no config
-          if (needsSecret && !hasConfig) return 2;
-
-          // Default (Sentence service needs secret and has config) — also rank 2
+          // Group 3: everything else (needs secret and/or external config)
           return 2;
         }
         // Rank for word services

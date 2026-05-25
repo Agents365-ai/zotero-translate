@@ -1,3 +1,10 @@
+service-deepseek=DeepSeek
+service-minimax=MiniMax
+service-moonshot=Moonshot (Kimi)
+service-zhipu=Zhipu GLM
+service-volcengine=Volcengine Ark (Doubao)
+service-siliconflow=SiliconFlow
+service-openrouter=OpenRouter
 service-huoshanweb=Volcengine Web
 service-tencenttransmart=Tencent Transmart
 service-huoshan=Huoshan
@@ -20,7 +27,7 @@ service-baidu=Baidu
 service-baidufield=Baidu Field
 service-openl=OpenL
 service-tencent=Tencent
-service-aliyun=Aliyun
+service-aliyun=Aliyun Bailian (Qwen)
 service-xftrans=Xftrans
 service-chatgpt=ChatGPT
 service-customgpt1=Custom GPT 1
@@ -44,7 +51,7 @@ service-webliodict=Weblio Dict(en→ja)
 service-errorPrefix=[Errore nella richiesta]
     Servizio di traduzione non disponibile, segreto non valido, o richiesta troppo rapida.
     Si prega di usare un altro servizio di traduzione o di segnalare il problema qui: 
-    https://github.com/windingwind/zotero-pdf-translate/issues
+    https://github.com/Agents365-ai/zotero-translate/issues
     
     Il messaggio seguente non è di Zotero o dell'estensione Translate ma proviene da
 
