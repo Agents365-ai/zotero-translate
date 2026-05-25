@@ -317,6 +317,7 @@ function createGPTService(id: ID): TranslateService {
   return {
     id,
     type: "sentence",
+    llm: true,
     helpUrl:
       id === "azuregpt"
         ? "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/reference#chat-completions"
@@ -468,3 +469,126 @@ export const customGPT1 = createGPTService("customgpt1");
 export const customGPT2 = createGPTService("customgpt2");
 export const customGPT3 = createGPTService("customgpt3");
 export const azureGPT = createGPTService("azuregpt");
+
+/**
+ * Generic factory for any OpenAI-compatible chat-completions provider.
+ *
+ * Reuses {@link gptTranslate}; all per-provider settings (endpoint, model,
+ * temperature, prompt, stream, customParams) live under the `<id>.*` prefs,
+ * and the API key is stored in `secretObj[id]`. The settings dialog reuses the
+ * ChatGPT dialog labels (`service-chatgpt-dialog-*`).
+ */
+type PresetID =
+  | "deepseek"
+  | "aliyun"
+  | "minimax"
+  | "moonshot"
+  | "zhipu"
+  | "volcengine"
+  | "siliconflow"
+  | "openrouter";
+
+function createOpenAICompatibleService(preset: {
+  id: PresetID;
+  helpUrl?: string;
+}): TranslateService {
+  const { id, helpUrl } = preset;
+  return {
+    id,
+    type: "sentence",
+    llm: true,
+    helpUrl,
+    defaultSecret: "",
+    secretValidator(secret: string) {
+      const status = secret.length > 0;
+      return {
+        secret,
+        status,
+        info: status
+          ? "Click the button to check connectivity."
+          : "The secret is not set.",
+      };
+    },
+    async translate(data) {
+      const apiURL = getPref(`${id}.endPoint`) as string;
+      const model = getPref(`${id}.model`) as string;
+      const temperature = parseFloat(getPref(`${id}.temperature`) as string);
+      const stream = getPref(`${id}.stream`) as boolean;
+      return await gptTranslate(apiURL, model, temperature, id, data, stream);
+    },
+    config(settings) {
+      settings
+        .addTextSetting({
+          prefKey: `${id}.endPoint`,
+          nameKey: `service-chatgpt-dialog-endPoint`,
+        })
+        .addTextSetting({
+          prefKey: `${id}.model`,
+          nameKey: `service-chatgpt-dialog-model`,
+        })
+        .addNumberSetting({
+          prefKey: `${id}.temperature`,
+          nameKey: `service-chatgpt-dialog-temperature`,
+          min: 0,
+          max: 2,
+          step: 0.1,
+        })
+        .addTextAreaSetting({
+          prefKey: `${id}.prompt`,
+          nameKey: `service-chatgpt-dialog-prompt`,
+          placeholder: getString(`service-chatgpt-dialog-prompt`),
+        })
+        .addCheckboxSetting({
+          prefKey: `${id}.stream`,
+          nameKey: `service-chatgpt-dialog-stream`,
+        })
+        .addCustomParamsSetting({
+          prefKey: `${id}.customParams`,
+          nameKey: `service-chatgpt-dialog-custom-request`,
+          desc: getString(`service-chatgpt-dialog-custom-request-description`),
+        });
+    },
+  };
+}
+
+/**
+ * Preset OpenAI-compatible providers. Endpoints/models are sensible defaults
+ * and remain user-editable in each service's settings dialog. Display names
+ * come from `service-<id>` localization keys.
+ */
+export const openAICompatiblePresets: TranslateService[] = [
+  createOpenAICompatibleService({
+    id: "deepseek",
+    helpUrl: "https://api-docs.deepseek.com/",
+  }),
+  createOpenAICompatibleService({
+    id: "aliyun",
+    helpUrl:
+      "https://help.aliyun.com/zh/model-studio/developer-reference/compatibility-of-openai-with-dashscope",
+  }),
+  createOpenAICompatibleService({
+    id: "minimax",
+    helpUrl: "https://platform.minimaxi.com/document/guides/chat-model/V2",
+  }),
+  createOpenAICompatibleService({
+    id: "moonshot",
+    helpUrl: "https://platform.moonshot.cn/docs/api/chat",
+  }),
+  createOpenAICompatibleService({
+    id: "zhipu",
+    helpUrl: "https://bigmodel.cn/dev/api/normal-model/glm-4",
+  }),
+  createOpenAICompatibleService({
+    id: "volcengine",
+    helpUrl: "https://www.volcengine.com/docs/82379/1298454",
+  }),
+  createOpenAICompatibleService({
+    id: "siliconflow",
+    helpUrl:
+      "https://docs.siliconflow.cn/cn/api-reference/chat-completions/chat-completions",
+  }),
+  createOpenAICompatibleService({
+    id: "openrouter",
+    helpUrl: "https://openrouter.ai/docs/api-reference/chat-completion",
+  }),
+];

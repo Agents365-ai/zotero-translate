@@ -1,3 +1,10 @@
+service-deepseek=DeepSeek
+service-minimax=MiniMax
+service-moonshot=Moonshot (Kimi)
+service-zhipu=Zhipu GLM
+service-volcengine=Volcengine Ark (Doubao)
+service-siliconflow=SiliconFlow
+service-openrouter=OpenRouter
 service-huoshanweb=Volcengine Web
 service-tencenttransmart=Tencent Transmart
 service-huoshan=Huoshan
@@ -20,7 +27,7 @@ service-baidu=Baidu
 service-baidufield=Baidu Field
 service-openl=OpenL
 service-tencent=Tencent
-service-aliyun=Aliyun
+service-aliyun=Aliyun Bailian (Qwen)
 service-xftrans=Xftrans
 service-chatgpt=ChatGPT
 service-customgpt1=Custom GPT 1
@@ -44,7 +51,7 @@ service-webliodict=Weblio Dict(en→ja)
 service-errorPrefix=[Request Error]
     Service not available, invalid secret, or request too fast.
     Use another translation service or post the issue here: 
-    https://github.com/windingwind/zotero-pdf-translate/issues
+    https://github.com/Agents365-ai/zotero-translate/issues
     
     The message below is not Zotero or the Translate plugin, but from
 
