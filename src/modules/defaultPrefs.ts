@@ -13,7 +13,7 @@ export function setDefaultPrefSettings() {
   }
 
   if (!getPref("targetLanguage")) {
-    setPref("targetLanguage", Zotero.locale);
+    setPref("targetLanguage", "zh-CN");
   }
 
   const secrets = getPrefJSON("secretObj");
