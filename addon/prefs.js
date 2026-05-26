@@ -13,7 +13,7 @@ pref("__prefsPrefix__.enableNoteReplaceMode", false);
 pref("__prefsPrefix__.translateSource", "");
 pref("__prefsPrefix__.dictSource", "");
 pref("__prefsPrefix__.sourceLanguage", "en-US");
-pref("__prefsPrefix__.targetLanguage", "");
+pref("__prefsPrefix__.targetLanguage", "zh-CN");
 pref("__prefsPrefix__.fontSize", "12");
 pref("__prefsPrefix__.lineHeight", "1.5");
 pref("__prefsPrefix__.splitChar", "\ud83d\udd24");
@@ -104,7 +104,7 @@ pref(
   "__prefsPrefix__.deepseek.endPoint",
   "https://api.deepseek.com/v1/chat/completions",
 );
-pref("__prefsPrefix__.deepseek.model", "deepseek-chat");
+pref("__prefsPrefix__.deepseek.model", "deepseek-v4-flash");
 pref("__prefsPrefix__.deepseek.temperature", "0.3");
 pref(
   "__prefsPrefix__.deepseek.prompt",
